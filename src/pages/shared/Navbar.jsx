@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div className="navbar h-[80px]">
       <div className="navbar-start">
@@ -75,7 +79,13 @@ const Navbar = () => {
       <div className="navbar-end  ">
         <div className="btn btn-ghost btn-circle avatar">
           <div className="w-10 rounded-full ">
-            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            <img
+              src={
+                user?.photoURL
+                  ? user.photoURL
+                  : "https://i.ibb.co/Ws1r9fp/images.png"
+              }
+            />
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
-  const { createUser, signInWithGoogle } = useContext(AuthContext);
+  const { createUser, signInWithGoogle, setLoading } = useContext(AuthContext);
   const [firstIsShow, setFirstIsShow] = useState(false);
   const [secondIsShow, setSecondIsShow] = useState(false);
   const [isTermsChecked, setIsTermsChecked] = useState(false);
@@ -233,7 +233,7 @@ const SignUp = () => {
         <p className="text-center mt-2">
           Already have an account?{" "}
           <span className="text-pink-500 font-semibold underline underline-offset-2">
-            <Link to={"/login"}>Login</Link>
+            <Link to={"/signIn"}>SignIn</Link>
           </span>
         </p>
       </form>
