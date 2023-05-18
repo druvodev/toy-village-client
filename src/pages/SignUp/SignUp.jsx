@@ -73,7 +73,7 @@ const SignUp = () => {
   return (
     <div className="mx-auto py-8">
       <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
-        Register Your Account
+        SignUp Your Account
       </h1>
       <form
         onSubmit={handleEmailRegister}

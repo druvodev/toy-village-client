@@ -58,7 +58,9 @@ const SignIn = () => {
 
   return (
     <div className="mx-auto py-8">
-      <h1 className="text-2xl font-bold mb-6 text-center">SignIn Account</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center">
+        SignIn Your Account
+      </h1>
       <form
         onSubmit={handleEmailSignIn}
         className="w-full max-w-3xl mx-auto bg-white p-4 sm:p-8 rounded-md sm:shadow-md"
