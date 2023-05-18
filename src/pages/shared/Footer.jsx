@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="mb-6 md:mb-0">
             <Link to={"/"}>
               <p className="text-3xl font-bold text-gray-900">
-                Toy<span className="text-rose-500">Village</span>
+                Toy<span className="text-pink-500">Village</span>
               </p>
             </Link>
             <div className="mx-auto max-w-screen-xl mt-10">
@@ -73,10 +73,10 @@ const Footer = () => {
                 CATEGORIES
               </h2>
               <ul className="text-gray-500 font-medium">
-                <li className="mb-4 hover:underline">Teddy Bear</li>
-                <li className="hover:underline">Dinosaur</li>
-                <li className="hover:underline">Unicorn</li>
-                <li className="hover:underline">Dogs</li>
+                <li className="mb-4 hover:underline">Sports Car</li>
+                <li className="mb-4 hover:underline">Truck</li>
+                <li className="mb-4 hover:underline">Mini Fire Truck</li>
+                <li className="hover:underline">Mini Police Car</li>
               </ul>
             </div>
             <div>
@@ -143,7 +143,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">Facebook page</span>
             </a>
-            <a href="#" className="text-gray-500 hover:text-rose-500">
+            <a href="#" className="text-gray-500 hover:text-pink-500">
               <svg
                 className="w-5 h-5"
                 fill="currentColor"

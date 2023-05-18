@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-200">
+    <div className="navbar h-[80px]">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -56,7 +56,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to={"/"} className="btn btn-ghost normal-case text-xl">
-          Toy<span className="text-rose-500">Village</span>
+          Toy<span className="text-pink-500">Village</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
