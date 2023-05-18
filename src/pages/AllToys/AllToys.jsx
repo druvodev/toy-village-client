@@ -1,45 +1,90 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ToyCard from "./ToyCard";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const AllToys = () => {
-  const [toys, setToys] = useState([]);
+  const { loading, setLoading } = useContext(AuthContext);
+  const [searchQuery, setSearchQuery] = useState("");
   const [displayToys, setDisplayToys] = useState([]);
   const allToys = useLoaderData();
 
-  // Initially showed 8 toys
   useEffect(() => {
-    setDisplayToys(allToys.slice(0, 4));
-  }, [allToys]);
+    // Filter toys based on search query
+    const filteredToys = allToys.filter((toy) =>
+      toy.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
-  // When toggle arrow button then showed 8 or all toys
+    setDisplayToys(filteredToys.slice(0, 4));
+  }, [allToys, searchQuery]);
+
+  const handleSearch = () => {
+    setLoading(true);
+    // Perform search
+    fetch(`http://localhost:5000/allToys?search=${searchQuery}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setDisplayToys(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error searching for toys:", error);
+        setLoading(false);
+      });
+  };
+
+  // Toggle display of toys
   const handleDisplayToys = () => {
     if (displayToys.length > 4) {
-      setDisplayToys(allToys.slice(0, 4));
+      setDisplayToys(displayToys.slice(0, 4));
     } else {
       setDisplayToys(allToys);
     }
   };
+
   return (
     <div>
-      <div className="overflow-x-auto w-full">
-        <table className="table w-full">
-          <tbody>
-            {displayToys.map((toy) => (
-              <ToyCard key={toy._id} toy={toy}></ToyCard>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="text-center mt-4 mb-10">
+      <div className="py-10 text-center">
+        <input
+          type="text"
+          className="border border-pink-500 px-3 py-3 rounded-l-2xl w-96 font-semibold"
+          placeholder="Search.."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
         <button
-          onClick={handleDisplayToys}
-          className="text-4xl p-2 text-slate-500 bg-gray-200 rounded-full"
+          className="bg-pink-500 px-10 py-3 text-lg font-bold text-white tracking-wider rounded-r-2xl"
+          onClick={handleSearch}
         >
-          {displayToys.length > 4 ? <FaChevronUp /> : <FaChevronDown />}
+          Search
         </button>
       </div>
+      {loading ? (
+        <p>Loading..</p>
+      ) : displayToys.length === 0 ? (
+        <p className="text-center text-lg my-10 ">No matching toys found!</p>
+      ) : (
+        <>
+          <div className="overflow-x-auto w-full">
+            <table className="table w-full">
+              <tbody>
+                {displayToys.map((toy) => (
+                  <ToyCard key={toy._id} toy={toy} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="text-center mt-4 mb-10">
+            <button
+              onClick={handleDisplayToys}
+              className="text-4xl p-2 text-slate-500 bg-gray-200 rounded-full"
+            >
+              {displayToys.length > 4 ? <FaChevronUp /> : <FaChevronDown />}
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };
