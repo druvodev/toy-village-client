@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const AddToy = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
+  const { user } = useContext(AuthContext);
+  console.log(user);
 
   // Get form input fields value
   const handleSubmit = (event) => {
@@ -13,13 +16,13 @@ const AddToy = () => {
     const toy = {
       name: formData.get("name"),
       photo: formData.get("photo"),
-      sellerMail: formData.get("sellerMail"),
+      sellerMail: user.email,
       category: formData.get("category"),
       subCategory: formData.get("subCategory"),
       price: formData.get("price"),
       rating: formData.get("rating"),
       availableQuantity: formData.get("availableQuantity"),
-      sellerName: formData.get("sellerName"),
+      sellerName: user.displayName,
       detailsDescription: formData.get("detailsDescription"),
     };
 
@@ -85,7 +88,7 @@ const AddToy = () => {
           <div className="block pl-2 font-semibold text-xl self-start text-gray-700">
             <h2 className="leading-relaxed">Add New Toy</h2>
             <p className="text-sm text-gray-500 font-normal leading-relaxed">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              We design toys not just for kids but with kids
             </p>
           </div>
         </div>
@@ -99,16 +102,18 @@ const AddToy = () => {
               type="text"
               id="name"
               name="name"
+              placeholder="Toy Name"
               required
             />
           </div>
 
           <div className="mt-4">
-            <label htmlFor="photo">Photo:</label> <br />
+            <label htmlFor="photo">Photo URL:</label> <br />
             <input
               type="text"
               id="photo"
               name="photo"
+              placeholder="https://www.example.com/image.jpg"
               className="border w-full p-2 rounded-md"
               required
             />
@@ -156,6 +161,7 @@ const AddToy = () => {
               <input
                 type="number"
                 id="price"
+                placeholder="$"
                 className="border w-full p-2 rounded-md"
                 name="price"
                 step="0.01"
@@ -167,6 +173,7 @@ const AddToy = () => {
               <input
                 type="number"
                 id="rating"
+                placeholder="5.0"
                 className="border w-full p-2 rounded-md"
                 name="rating"
                 min={0}
@@ -180,11 +187,24 @@ const AddToy = () => {
               <input
                 type="number"
                 id="availableQuantity"
+                placeholder="100"
                 className="border w-full p-2 rounded-md"
                 name="availableQuantity"
                 required=""
               />
             </div>
+          </div>
+          <div className="mt-4">
+            <label htmlFor="detailsDescription">Details Description:</label>
+            <br />
+            <textarea
+              id="detailsDescription"
+              placeholder="Type Toy Details..."
+              name="detailsDescription"
+              className="w-full border rounded-md p-2"
+              required=""
+              defaultValue={""}
+            />
           </div>
           <div className="grid grid-cols-2 gap-5 mt-4 justify-between">
             <div>
@@ -194,7 +214,8 @@ const AddToy = () => {
                 id="sellerName"
                 className="border w-full p-2 rounded-md"
                 name="sellerName"
-                required
+                defaultValue={user.displayName}
+                disabled
               />
             </div>
             <div>
@@ -204,21 +225,12 @@ const AddToy = () => {
                 id="sellerMail"
                 className="border w-full p-2 rounded-md"
                 name="sellerMail"
-                required
+                defaultValue={user.email}
+                disabled
               />
             </div>
           </div>
-          <div className="mt-4">
-            <label htmlFor="detailsDescription">Details Description:</label>
-            <br />
-            <textarea
-              id="detailsDescription"
-              name="detailsDescription"
-              className="w-full border rounded-md p-2"
-              required=""
-              defaultValue={""}
-            />
-          </div>
+
           <div className="pt-4 flex items-center space-x-4 mt-7">
             <button className="flex justify-center items-center w-full text-gray-900 px-4 py-3 rounded-md focus:outline-none border border-pink-500">
               <svg
