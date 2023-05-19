@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ToyUpdate = () => {
   const oldInfo = useLoaderData();
@@ -38,7 +39,7 @@ const ToyUpdate = () => {
     };
 
     // Updated Toy Details
-    fetch(`http://localhost:5000/toyUpdate/${_id}`, {
+    fetch(`http://localhost:5000/toyDetails/${_id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedToy),
@@ -51,9 +52,21 @@ const ToyUpdate = () => {
           const updatedToys = [updatedToy, ...remaining];
           setToys(updatedToys);
           console.log(updatedToy);
-          alert("Toy updated successfully");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your toy info has been updated",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         } else {
-          alert("Failed to update toy");
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Failed to update toy info",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       })
       .catch((error) => {

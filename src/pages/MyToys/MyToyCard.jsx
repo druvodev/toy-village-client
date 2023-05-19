@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const MyToyCard = ({ toy }) => {
+  const { toys, setToys } = useContext(AuthContext);
   const {
     _id,
     name,
@@ -11,6 +14,33 @@ const MyToyCard = ({ toy }) => {
     availableQuantity,
     sellerName,
   } = toy;
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert toy!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/toyDetails/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your toy has been deleted.", "success");
+              const remaining = toys.filter((toy) => toy._id !== _id);
+              setToys(remaining);
+            }
+          });
+      }
+    });
+  };
   return (
     <tr>
       <td>
@@ -44,14 +74,17 @@ const MyToyCard = ({ toy }) => {
       </td>
       <th>
         <Link
-          to={`/toyUpdate/${_id}`}
+          to={`/toyDetails/${_id}`}
           className="px-5 py-2 btn btn-warning border hover:text-white font-semibold hover:underline underline-offset-2 duration-200 rounded-md shadow-md"
         >
           Update
         </Link>
       </th>
       <th>
-        <button className="px-5 py-2 btn border-none border-red-500 bg-red-500 hover:bg-red-600 hover:text-white font-semibold hover:underline underline-offset-2 duration-200 rounded-md shadow-md">
+        <button
+          onClick={handleDelete}
+          className="px-5 py-2 btn border-none border-red-500 bg-red-500 hover:bg-red-600 hover:text-white font-semibold hover:underline underline-offset-2 duration-200 rounded-md shadow-md"
+        >
           Delete
         </button>
       </th>
