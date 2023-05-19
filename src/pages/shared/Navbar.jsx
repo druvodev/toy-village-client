@@ -69,7 +69,7 @@ const Navbar = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li tabIndex={0}>
-            <Link to={"/allToys"}>All Toys</Link>
+            <Link to={"/toys"}>All Toys</Link>
           </li>
           <li>
             <Link to={"/addToy"}>Add Toy</Link>

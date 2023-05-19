@@ -22,7 +22,7 @@ const AllToys = () => {
   const handleSearch = () => {
     setLoading(true);
     // Perform search
-    fetch(`http://localhost:5000/allToys?search=${searchQuery}`)
+    fetch(`http://localhost:5000/toys?search=${searchQuery}`)
       .then((res) => res.json())
       .then((data) => {
         setDisplayToys(data);
@@ -45,7 +45,7 @@ const AllToys = () => {
 
   return (
     <div>
-      <div className="py-10 text-center">
+      <div className="py-10 text-center bg-pink-100">
         <input
           type="text"
           className="border border-pink-500 px-3 py-3 rounded-l-2xl w-96 font-semibold"

@@ -1,8 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ToyCard = ({ toy }) => {
-  const { name, photo, subCategory, price, availableQuantity, sellerName } =
-    toy;
+  const {
+    _id,
+    name,
+    photo,
+    subCategory,
+    price,
+    availableQuantity,
+    sellerName,
+  } = toy;
   return (
     <tr>
       <td>
@@ -35,9 +43,12 @@ const ToyCard = ({ toy }) => {
         </div>
       </td>
       <th>
-        <button className="btn bg-pink-500 hover:bg-pink-600 border-none py-3 px-5">
-          details
-        </button>
+        <Link
+          to={`/toyDetails/${_id}`}
+          className="px-5 py-2 border border-pink-500 hover:bg-pink-500 hover:text-white font-semibold hover:underline underline-offset-2 duration-200 rounded-md shadow-md"
+        >
+          Details
+        </Link>
       </th>
     </tr>
   );
