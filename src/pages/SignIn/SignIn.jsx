@@ -5,7 +5,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const SignIn = () => {
-  const { SignInUser, signInWithGoogle } = useContext(AuthContext);
+  const { SignInUser, signInWithGoogle, setLoading } = useContext(AuthContext);
   const [isShow, setIsShow] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -58,7 +58,7 @@ const SignIn = () => {
 
   return (
     <div className="mx-auto py-8">
-      <h1 className="text-2xl font-bold mb-6 text-center">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
         SignIn Your Account
       </h1>
       <form

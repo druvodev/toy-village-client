@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 export const AuthContext = createContext(null);
@@ -36,6 +37,13 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  // LogOut User
+  const logOut = () => {
+    signOut(auth)
+      .then(console.log("Sign out successfull."))
+      .catch((error) => setError(error.message));
+  };
+
   // Observe User Auth State
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -50,6 +58,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     signInWithGoogle,
     signInUser,
+    logOut,
     user,
     loading,
     setLoading,

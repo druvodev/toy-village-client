@@ -1,12 +1,19 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { FiLogOut } from "react-icons/fi";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const location = useLocation();
+  const [signIn, setSignIn] = useState(location.pathname === "/signIn");
+
+  const toggleSignIn = () => {
+    setSignIn(!signIn);
+  };
   console.log(user);
   return (
-    <div className="navbar h-[80px]">
+    <div className="navbar h-[80px] border-b-2">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -30,33 +37,23 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <Link to={"/"}>Home</Link>
             </li>
             <li tabIndex={0}>
-              <a className="justify-between">
-                Parent
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                </svg>
-              </a>
-              <ul className="p-2">
+              <Link to={"/toys"}>All Toys</Link>
+            </li>
+            {user ? (
+              <>
                 <li>
-                  <a>Submenu 1</a>
+                  <Link to={"/addToy"}>Add Toy</Link>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <Link to={`/myToys/${user?.email}`}>My Toy</Link>
                 </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+              </>
+            ) : (
+              ""
+            )}
           </ul>
         </div>
         <Link to={"/"} className="btn btn-ghost normal-case text-xl">
@@ -71,26 +68,58 @@ const Navbar = () => {
           <li tabIndex={0}>
             <Link to={"/toys"}>All Toys</Link>
           </li>
-          <li>
-            <Link to={"/addToy"}>Add Toy</Link>
-          </li>
-          <li>
-            <Link to={`/myToys/${user?.email}`}>My Toy</Link>
-          </li>
+          {user ? (
+            <>
+              <li>
+                <Link to={"/addToy"}>Add Toy</Link>
+              </li>
+              <li>
+                <Link to={`/myToys/${user?.email}`}>My Toy</Link>
+              </li>
+            </>
+          ) : (
+            ""
+          )}
         </ul>
       </div>
       <div className="navbar-end  ">
-        <div className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full ">
-            <img
-              src={
-                user?.photoURL
-                  ? user.photoURL
-                  : "https://i.ibb.co/Ws1r9fp/images.png"
-              }
-            />
+        {user ? (
+          <div className="flex gap-3">
+            <div className="btn btn-ghost btn-circle avatar">
+              <div className="w-12 rounded-full ">
+                <img
+                  src={
+                    user?.photoURL
+                      ? user.photoURL
+                      : "https://i.ibb.co/Ws1r9fp/images.png"
+                  }
+                />
+              </div>
+            </div>
+            <span
+              onClick={() => logOut()}
+              className="bg-rose-50 text-red-500 hover:bg-rose-100 w-12 h-12 text-2xl rounded-full flex items-center justify-center cursor-pointer shadow-md"
+            >
+              <FiLogOut />
+            </span>
           </div>
-        </div>
+        ) : !signIn ? (
+          <Link
+            onClick={() => toggleSignIn()}
+            to={"/signIn"}
+            className="border border-pink-500 bg-pink-500 text-white font-semibold rounded-md px-4 py-2 text-lg"
+          >
+            Sign In
+          </Link>
+        ) : (
+          <Link
+            onClick={() => toggleSignIn()}
+            to={"/signUp"}
+            className="border border-pink-500 hover:bg-pink-500 hover:text-white duration-200 font-semibold rounded-md px-4 py-2 text-lg"
+          >
+            Sign Up
+          </Link>
+        )}
       </div>
     </div>
   );
