@@ -15,6 +15,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [toys, setToys] = useState([]);
 
   // register with email and password
   const createUser = (email, password) => {
@@ -52,6 +53,8 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     setLoading,
+    toys,
+    setToys,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

@@ -4,7 +4,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
-
+  console.log(user);
   return (
     <div className="navbar h-[80px]">
       <div className="navbar-start">
@@ -73,6 +73,9 @@ const Navbar = () => {
           </li>
           <li>
             <Link to={"/addToy"}>Add Toy</Link>
+          </li>
+          <li>
+            <Link to={`/myToys/${user?.email}`}>My Toy</Link>
           </li>
         </ul>
       </div>
