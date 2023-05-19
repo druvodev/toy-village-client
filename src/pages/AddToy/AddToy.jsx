@@ -1,11 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AddToy = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const { user } = useContext(AuthContext);
   console.log(user);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "ToyVillage || Add Toy";
+  }, []);
 
   // Get form input fields value
   const handleSubmit = (event) => {
@@ -28,7 +34,7 @@ const AddToy = () => {
     };
 
     // Add new toy in database
-    fetch("http://localhost:5000/addToy", {
+    fetch("https://toy-village-server.vercel.app/addToy", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(toy),
@@ -43,6 +49,7 @@ const AddToy = () => {
             showConfirmButton: false,
             timer: 1500,
           });
+          navigate("/");
         }
       });
   };
@@ -239,7 +246,10 @@ const AddToy = () => {
           </div>
 
           <div className="pt-4 flex items-center space-x-4 mt-7">
-            <button className="flex justify-center items-center w-full text-gray-900 px-4 py-3 rounded-md focus:outline-none border border-pink-500">
+            <span
+              onClick={() => navigate("/")}
+              className="flex justify-center items-center w-full text-gray-900 px-4 py-3 rounded-md focus:outline-none border border-pink-500 cursor-pointer"
+            >
               <svg
                 className="w-6 h-6 mr-3"
                 fill="none"
@@ -255,10 +265,10 @@ const AddToy = () => {
                 />
               </svg>{" "}
               Cancel
-            </button>
+            </span>
             <input
               type="submit"
-              className="bg-pink-500 border border-pink-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"
+              className="bg-pink-500 border border-pink-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none cursor-pointer"
               value={"Add"}
             />
           </div>

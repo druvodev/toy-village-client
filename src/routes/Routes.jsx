@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       {
         path: "/toys",
         element: <AllToys></AllToys>,
-        loader: () => fetch("http://localhost:5000/toys"),
+        loader: () => fetch("https://toy-village-server.vercel.app/toys"),
       },
       {
         path: "/addToy",
@@ -50,27 +50,31 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/myToys/${params.id}`),
+          fetch(`https://toy-village-server.vercel.app/myToys/${params.id}`),
       },
       {
-        path: "/toyDetails/",
+        path: "/toyDetails/:id",
         element: (
           <PrivateRoute>
             <ToyDetails></ToyDetails>
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toyDetails/${params.id}`),
+          fetch(
+            `https://toy-village-server.vercel.app/toyDetails/${params.id}`
+          ),
       },
       {
-        path: "/toyDetails/:id",
+        path: "/toyUpdate/:id",
         element: (
           <PrivateRoute>
             <ToyUpdate></ToyUpdate>
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toyDetails/${params.id}`),
+          fetch(
+            `https://toy-village-server.vercel.app/toyDetails/${params.id}`
+          ),
       },
     ],
   },

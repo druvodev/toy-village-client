@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { CgDanger } from "react-icons/cg";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,6 +12,10 @@ const SignUp = () => {
   const [isTermsChecked, setIsTermsChecked] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "ToyVillage || Sign Up";
+  }, []);
 
   // Automatic remove error message
   if (error) {

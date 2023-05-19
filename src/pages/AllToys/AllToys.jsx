@@ -11,6 +11,10 @@ const AllToys = () => {
   const allToys = useLoaderData();
 
   useEffect(() => {
+    document.title = "ToyVillage || All Toys";
+  }, []);
+
+  useEffect(() => {
     // Filter toys based on search query
     const filteredToys = allToys.filter((toy) =>
       toy.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -22,7 +26,7 @@ const AllToys = () => {
   const handleSearch = () => {
     setLoading(true);
     // Perform search
-    fetch(`http://localhost:5000/toys?search=${searchQuery}`)
+    fetch(`https://toy-village-server.vercel.app/toys?search=${searchQuery}`)
       .then((res) => res.json())
       .then((data) => {
         setDisplayToys(data);

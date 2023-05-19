@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { CgDanger } from "react-icons/cg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -11,6 +11,10 @@ const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+    document.title = "ToyVillage || Sign In";
+  }, []);
 
   // SignIn with email and password
   const handleEmailSignIn = (event) => {

@@ -7,7 +7,7 @@ const ToyCategory = () => {
   const [toys, setToys] = useState([]);
 
   const handleCategory = (category) => {
-    fetch(`http://localhost:5000/toyList/${category}`)
+    fetch(`https://toy-village-server.vercel.app/toyList/${category}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

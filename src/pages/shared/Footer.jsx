@@ -7,6 +7,11 @@ const Footer = () => {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <Link to={"/"}>
+              <img
+                className="h-10"
+                src="https://i.ibb.co/dfdrhxx/image-1.png"
+                alt=""
+              />
               <p className="text-3xl font-bold text-gray-900">
                 Toy<span className="text-pink-500">Village</span>
               </p>

@@ -15,7 +15,7 @@ const MyToyCard = ({ toy }) => {
     sellerName,
   } = toy;
 
-  const handleDelete = (id) => {
+  const handleDelete = () => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert toy!",
@@ -26,7 +26,7 @@ const MyToyCard = ({ toy }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toyDetails/${_id}`, {
+        fetch(`https://toy-village-server.vercel.app/toyDetails/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -74,7 +74,7 @@ const MyToyCard = ({ toy }) => {
       </td>
       <th>
         <Link
-          to={`/toyDetails/${_id}`}
+          to={`/toyUpdate/${_id}`}
           className="px-5 py-2 btn btn-warning border hover:text-white font-semibold hover:underline underline-offset-2 duration-200 rounded-md shadow-md"
         >
           Update

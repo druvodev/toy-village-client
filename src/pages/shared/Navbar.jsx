@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FiLogOut } from "react-icons/fi";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -48,7 +49,7 @@ const Navbar = () => {
                   <Link to={"/addToy"}>Add Toy</Link>
                 </li>
                 <li>
-                  <Link to={`/myToys/${user?.email}`}>My Toy</Link>
+                  <Link to={`/myToys/${user?.email}`}>My Toys</Link>
                 </li>
               </>
             ) : (
@@ -57,6 +58,11 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to={"/"} className="btn btn-ghost normal-case text-xl">
+          <img
+            className="h-full"
+            src="https://i.ibb.co/dfdrhxx/image-1.png"
+            alt=""
+          />
           Toy<span className="text-pink-500">Village</span>
         </Link>
       </div>
@@ -74,7 +80,7 @@ const Navbar = () => {
                 <Link to={"/addToy"}>Add Toy</Link>
               </li>
               <li>
-                <Link to={`/myToys/${user?.email}`}>My Toy</Link>
+                <Link to={`/myToys/${user?.email}`}>My Toys</Link>
               </li>
             </>
           ) : (
@@ -86,7 +92,7 @@ const Navbar = () => {
         {user ? (
           <div className="flex gap-3">
             <div className="btn btn-ghost btn-circle avatar">
-              <div className="w-12 rounded-full ">
+              <div className="w-12 rounded-full profileTooltip">
                 <img
                   src={
                     user?.photoURL
@@ -94,6 +100,9 @@ const Navbar = () => {
                       : "https://i.ibb.co/Ws1r9fp/images.png"
                   }
                 />
+                <Tooltip anchorSelect=".profileTooltip" place="left">
+                  {user?.displayName}
+                </Tooltip>
               </div>
             </div>
             <span

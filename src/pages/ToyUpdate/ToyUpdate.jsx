@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ToyUpdate = () => {
@@ -16,7 +16,12 @@ const ToyUpdate = () => {
   } = oldInfo;
   const [selectedCategory, setSelectedCategory] = useState("");
   const { user, toys, setToys } = useContext(AuthContext);
+  const navigate = useNavigate();
   console.log(toys);
+
+  useEffect(() => {
+    document.title = "ToyVillage || Toy Update";
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,7 +44,7 @@ const ToyUpdate = () => {
     };
 
     // Updated Toy Details
-    fetch(`http://localhost:5000/toyDetails/${_id}`, {
+    fetch(`https://toy-village-server.vercel.app/toyUpdate/${_id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedToy),
@@ -59,6 +64,7 @@ const ToyUpdate = () => {
             showConfirmButton: false,
             timer: 1500,
           });
+          navigate(-1);
         } else {
           Swal.fire({
             position: "center",
@@ -272,7 +278,10 @@ const ToyUpdate = () => {
           </div>
 
           <div className="pt-4 flex items-center space-x-4 mt-7">
-            <button className="flex justify-center items-center w-full text-gray-900 px-4 py-3 rounded-md focus:outline-none border border-amber-500">
+            <span
+              onClick={() => navigate(-1)}
+              className="flex justify-center items-center w-full text-gray-900 px-4 py-3 rounded-md focus:outline-none border border-amber-500 cursor-pointer"
+            >
               <svg
                 className="w-6 h-6 mr-3"
                 fill="none"
@@ -288,10 +297,10 @@ const ToyUpdate = () => {
                 />
               </svg>{" "}
               Cancel
-            </button>
+            </span>
             <input
               type="submit"
-              className="bg-amber-500 border border-amber-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"
+              className="bg-amber-500 border border-amber-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none cursor-pointer"
               value={"Update"}
             />
           </div>

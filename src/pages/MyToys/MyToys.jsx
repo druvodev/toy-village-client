@@ -6,6 +6,11 @@ import { AuthContext } from "../../providers/AuthProvider";
 const MyToys = () => {
   const toyCollection = useLoaderData();
   const { toys, setToys } = useContext(AuthContext);
+
+  useEffect(() => {
+    document.title = "ToyVillage || My Toys";
+  }, []);
+
   useEffect(() => {
     setToys(toyCollection);
   }, [toyCollection]);
