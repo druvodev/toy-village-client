@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -35,7 +36,13 @@ const AddToy = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          alert("Toy Added Successfully!");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your toy added successfully!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       });
   };
