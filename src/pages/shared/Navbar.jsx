@@ -59,7 +59,7 @@ const Navbar = () => {
         </div>
         <Link to={"/"} className="btn btn-ghost normal-case text-xl">
           <img
-            className="h-full"
+            className="h-full hidden sm:block"
             src="https://i.ibb.co/dfdrhxx/image-1.png"
             alt=""
           />

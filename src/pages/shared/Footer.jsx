@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-base-200">
+    <footer className="bg-gray-900">
       <div className="mx-auto w-full max-w-screen-xl px-5 sm:px-10 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
@@ -12,13 +12,13 @@ const Footer = () => {
                 src="https://i.ibb.co/dfdrhxx/image-1.png"
                 alt=""
               />
-              <p className="text-3xl font-bold text-gray-900">
+              <p className="text-3xl font-bold text-white">
                 Toy<span className="text-pink-500">Village</span>
               </p>
             </Link>
             <div className="mx-auto max-w-screen-xl mt-10">
               <div className="mx-auto max-w-screen-md">
-                <p className="mx-auto mb-4 max-w-2xl font-light md:mb-3 sm:text-xl text-gray-500">
+                <p className="mx-auto mb-4 max-w-2xl font-light md:mb-3 sm:text-xl text-gray-100">
                   Subscribe to our mailing list
                 </p>
                 <form action="#">
@@ -32,7 +32,7 @@ const Footer = () => {
                       </label>
                       <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                         <svg
-                          className="w-5 h-5 text-gray-500"
+                          className="w-5 h-5 text-gray-100"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,7 @@ const Footer = () => {
                         </svg>
                       </div>
                       <input
-                        className="block p-3 pl-10 w-full text-sm  rounded-lg border sm:rounded-none sm:rounded-l-lg focus:border-primary-500 bg-gray-200 border-gray-400 placeholder-gray-400 text-gray-900"
+                        className="block p-3 pl-10 w-full text-sm  rounded-lg border sm:rounded-none sm:rounded-l-lg focus:border-primary-500 bg-gray-200 border-gray-400 placeholder-gray-400 text-white"
                         placeholder="Enter your email"
                         type="email"
                         id="email"
@@ -74,10 +74,10 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 className="mb-6 text-sm font-bold uppercase text-gray-900">
+              <h2 className="mb-6 text-sm font-bold uppercase text-white">
                 CATEGORIES
               </h2>
-              <ul className="text-gray-500 font-medium">
+              <ul className="text-gray-100 font-medium">
                 <li className="mb-4 hover:underline">Sports Car</li>
                 <li className="mb-4 hover:underline">Truck</li>
                 <li className="mb-4 hover:underline">Mini Fire Truck</li>
@@ -85,20 +85,20 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-bold uppercase text-gray-900">
+              <h2 className="mb-6 text-sm font-bold uppercase text-white">
                 INFORMATION
               </h2>
-              <ul className="text-gray-500 font-medium">
+              <ul className="text-gray-100 font-medium">
                 <li className="mb-4 hover:underline">Product Support</li>
                 <li className="mb-4 hover:underline">Checkout</li>
                 <li className="mb-4 hover:underline">Check Offer List</li>
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-bold uppercase text-gray-900">
+              <h2 className="mb-6 text-sm font-bold uppercase text-white">
                 QUICK LINKS
               </h2>
-              <ul className="text-gray-500 font-medium">
+              <ul className="text-gray-100 font-medium">
                 <li className="mb-4">
                   <a href="#" className="hover:underline">
                     Help Center
@@ -123,9 +123,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <hr className="my-6 sm:mx-auto border-gray-700 lg:my-8" />
+        <hr className="my-6 sm:mx-auto border-gray-100 lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm sm:text-center text-gray-500">
+          <span className="text-sm sm:text-center text-gray-100">
             © 2023{" "}
             <a href="#" className="hover:underline">
               ToyVillage
@@ -133,7 +133,7 @@ const Footer = () => {
             . All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-            <a href="#" className="text-gray-500 hover:text-blue-500">
+            <a href="#" className="text-gray-100 hover:text-blue-500">
               <svg
                 className="w-5 h-5"
                 fill="currentColor"
@@ -148,7 +148,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">Facebook page</span>
             </a>
-            <a href="#" className="text-gray-500 hover:text-pink-500">
+            <a href="#" className="text-gray-100 hover:text-pink-500">
               <svg
                 className="w-5 h-5"
                 fill="currentColor"
@@ -163,7 +163,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">Instagram page</span>
             </a>
-            <a href="#" className="text-gray-500 hover:text-sky-500">
+            <a href="#" className="text-gray-100 hover:text-sky-500">
               <svg
                 className="w-5 h-5"
                 fill="currentColor"
@@ -174,7 +174,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">Twitter page</span>
             </a>
-            <a href="#" className="text-gray-500 hover:text-gray-900">
+            <a href="#" className="text-gray-100 hover:text-white">
               <svg
                 className="w-5 h-5"
                 fill="currentColor"

@@ -20,7 +20,7 @@ const Gallery = () => {
     "https://cdn.shopify.com/s/files/1/0088/7986/5907/products/Lego-10986-Duplo-Family-House-on-Wheels-Toy-With-Car-Construction-Lego-Toycra-9_700x700.webp?v=1681467930",
   ];
   return (
-    <div className="bg-pink-300 pt-5 sm:pt-10">
+    <div className="bg-pink-300 pt-5 sm:py-12">
       <h2 className="text-5xl font-bold mb-5 text-center">Moments Gallery</h2>
       <div className="grid grid-cols-8 gap-2">
         <div className="col-span-3">

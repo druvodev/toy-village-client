@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import Gallery from "./Gallery/Gallery";
 import ToyCategory from "./ToyCategory/ToyCategory";
 import Discount from "./Discount/Discount";
+import Article from "./Article/Article";
 
 const Home = () => {
   useEffect(() => {
@@ -14,6 +15,7 @@ const Home = () => {
       <Gallery></Gallery>
       <Discount></Discount>
       <ToyCategory></ToyCategory>
+      <Article></Article>
     </div>
   );
 };

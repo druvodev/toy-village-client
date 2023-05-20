@@ -17,7 +17,7 @@ const ToyCategory = () => {
   };
 
   return (
-    <div className="mt-12 px-5 sm:px-10">
+    <div className="my-12 px-5 sm:px-10">
       <h2 className="text-5xl font-bold text-center">Find Your Category</h2>
       <Tabs forceRenderTabPanel defaultIndex={1}>
         <TabList>
