@@ -12,7 +12,7 @@ const Navbar = () => {
   const toggleSignIn = () => {
     setSignIn(!signIn);
   };
-  console.log(user);
+
   return (
     <div className="navbar h-[80px] border-b-2">
       <div className="navbar-start">

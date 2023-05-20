@@ -1,28 +1,31 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import MyToyCard from "./MyToyCard";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const MyToys = () => {
   const toyCollection = useLoaderData();
+  const { user, toys, setToys } = useContext(AuthContext);
 
-  const { toys, setToys } = useContext(AuthContext);
-
-  // Handle Sorting Methods
-  const handleSort = (event) => {
+  // Handle Sorting Methods for server side
+  const handleSort = async (event) => {
     const selectedOption = event.target.value;
     if (selectedOption === "highest") {
-      const sortedToys = [...toys].sort(
-        (a, b) => parseFloat(b.price) - parseFloat(a.price)
-      );
-      setToys(sortedToys);
+      fetch(
+        `https://toy-village-server.vercel.app/myToys/${user.email}?sort=highest`
+      )
+        .then((res) => res.json())
+        .then((data) => setToys(data));
     } else if (selectedOption === "lowest") {
-      const sortedToys = [...toys].sort(
-        (a, b) => parseFloat(a.price) - parseFloat(b.price)
-      );
-      setToys(sortedToys);
+      fetch(
+        `https://toy-village-server.vercel.app/myToys/${user.email}?sort=lowest`
+      )
+        .then((res) => res.json())
+        .then((data) => setToys(data));
     } else {
-      setToys(toyCollection);
+      fetch(`https://toy-village-server.vercel.app/myToys/${user.email}`)
+        .then((res) => res.json())
+        .then((data) => setToys(data));
     }
   };
 
