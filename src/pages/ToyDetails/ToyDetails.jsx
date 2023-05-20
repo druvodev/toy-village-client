@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
 const ToyDetails = () => {
   const navigate = useNavigate();
   const toy = useLoaderData();
+  console.log(toy);
   const {
     name,
     photo,
@@ -16,15 +17,15 @@ const ToyDetails = () => {
   } = toy;
 
   useEffect(() => {
-    document.title = "ToyVillage || Toy Details";
+    document.title = "ToyVillage | Toy Details";
   }, []);
 
   return (
-    <div className="grid grid-cols-7 gap-5 p-10 m-10 bg-white shadow-md">
-      <div className="col-span-3">
+    <div className="grid sm:grid-cols-7 gap-5 p-5 sm:p-10 sm:m-10 bg-white shadow-md">
+      <div className="sm:col-span-3">
         <img src={photo} alt="" />
       </div>
-      <div className="col-span-4">
+      <div className="sm:col-span-4">
         <h3 className="text-3xl">
           {name}{" "}
           <span className="badge badge-outline badge-success">

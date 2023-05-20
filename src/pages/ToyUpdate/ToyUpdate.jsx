@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -20,7 +20,7 @@ const ToyUpdate = () => {
   console.log(toys);
 
   useEffect(() => {
-    document.title = "ToyVillage || Toy Update";
+    document.title = "ToyVillage | Toy Update";
   }, []);
 
   const handleSubmit = (event) => {

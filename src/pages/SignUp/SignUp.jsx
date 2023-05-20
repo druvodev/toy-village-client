@@ -14,7 +14,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "ToyVillage || Sign Up";
+    document.title = "ToyVillage | Sign Up";
   }, []);
 
   // Automatic remove error message

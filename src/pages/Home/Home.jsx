@@ -7,7 +7,7 @@ import Article from "./Article/Article";
 
 const Home = () => {
   useEffect(() => {
-    document.title = "ToyVillage || Home";
+    document.title = "ToyVillage | Home";
   }, []);
   return (
     <div className="">

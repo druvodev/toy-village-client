@@ -18,7 +18,7 @@ const Footer = () => {
             </Link>
             <div className="mx-auto max-w-screen-xl mt-10">
               <div className="mx-auto max-w-screen-md">
-                <p className="mx-auto mb-4 max-w-2xl font-light md:mb-3 sm:text-xl text-gray-100">
+                <p className="mx-auto mb-4 max-w-2xl font-light md:mb-3 sm:text-xl text-gray-400">
                   Subscribe to our mailing list
                 </p>
                 <form action="#">
@@ -32,7 +32,7 @@ const Footer = () => {
                       </label>
                       <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                         <svg
-                          className="w-5 h-5 text-gray-100"
+                          className="w-5 h-5 text-gray-400"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-bold uppercase text-white">
                 CATEGORIES
               </h2>
-              <ul className="text-gray-100 font-medium">
+              <ul className="text-gray-400 font-medium">
                 <li className="mb-4 hover:underline">Sports Car</li>
                 <li className="mb-4 hover:underline">Truck</li>
                 <li className="mb-4 hover:underline">Mini Fire Truck</li>
@@ -88,7 +88,7 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-bold uppercase text-white">
                 INFORMATION
               </h2>
-              <ul className="text-gray-100 font-medium">
+              <ul className="text-gray-400 font-medium">
                 <li className="mb-4 hover:underline">Product Support</li>
                 <li className="mb-4 hover:underline">Checkout</li>
                 <li className="mb-4 hover:underline">Check Offer List</li>
@@ -98,7 +98,7 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-bold uppercase text-white">
                 QUICK LINKS
               </h2>
-              <ul className="text-gray-100 font-medium">
+              <ul className="text-gray-400 font-medium">
                 <li className="mb-4">
                   <a href="#" className="hover:underline">
                     Help Center
@@ -125,7 +125,7 @@ const Footer = () => {
         </div>
         <hr className="my-6 sm:mx-auto border-gray-100 lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm sm:text-center text-gray-100">
+          <span className="text-sm sm:text-center text-gray-400">
             © 2023{" "}
             <a href="#" className="hover:underline">
               ToyVillage
@@ -133,7 +133,7 @@ const Footer = () => {
             . All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-            <a href="#" className="text-gray-100 hover:text-blue-500">
+            <a href="#" className="text-gray-400 hover:text-blue-500">
               <svg
                 className="w-5 h-5"
                 fill="currentColor"
@@ -148,7 +148,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">Facebook page</span>
             </a>
-            <a href="#" className="text-gray-100 hover:text-pink-500">
+            <a href="#" className="text-gray-400 hover:text-pink-500">
               <svg
                 className="w-5 h-5"
                 fill="currentColor"
@@ -163,7 +163,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">Instagram page</span>
             </a>
-            <a href="#" className="text-gray-100 hover:text-sky-500">
+            <a href="#" className="text-gray-400 hover:text-sky-500">
               <svg
                 className="w-5 h-5"
                 fill="currentColor"
@@ -174,7 +174,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">Twitter page</span>
             </a>
-            <a href="#" className="text-gray-100 hover:text-white">
+            <a href="#" className="text-gray-400 hover:text-white">
               <svg
                 className="w-5 h-5"
                 fill="currentColor"

@@ -13,7 +13,7 @@ const SignIn = () => {
   const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
-    document.title = "ToyVillage || Sign In";
+    document.title = "ToyVillage | Sign In";
   }, []);
 
   // SignIn with email and password

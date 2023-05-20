@@ -11,7 +11,7 @@ const AllToys = () => {
   const allToys = useLoaderData();
 
   useEffect(() => {
-    document.title = "ToyVillage || All Toys";
+    document.title = "ToyVillage | All Toys";
   }, []);
 
   useEffect(() => {
@@ -49,20 +49,22 @@ const AllToys = () => {
 
   return (
     <div>
-      <div className="py-10 text-center bg-pink-100 flex">
-        <input
-          type="text"
-          className="border border-pink-500 px-3 py-3 rounded-l-full w-96 font-semibold"
-          placeholder="Search.."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <button
-          className="bg-pink-500 px-6 sm:px-10 py-3 sm:text-lg font-bold text-white tracking-wider rounded-r-full"
-          onClick={handleSearch}
-        >
-          Search
-        </button>
+      <div className="bg-pink-100 py-10 flex justify-center">
+        <div className="flex">
+          <input
+            type="text"
+            className="border border-pink-500 px-3 py-3 rounded-l-full w-96 font-semibold"
+            placeholder="Search.."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button
+            className="bg-pink-500 px-6 sm:px-10 py-3 sm:text-lg font-bold text-white tracking-wider rounded-r-full"
+            onClick={handleSearch}
+          >
+            Search
+          </button>
+        </div>
       </div>
       {loading ? (
         <p>Loading..</p>
@@ -79,7 +81,7 @@ const AllToys = () => {
               </tbody>
             </table>
           </div>
-          <div className="text-center mt-4 mb-10">
+          <div className="text-center pt-4 pb-10">
             <button
               onClick={handleDisplayToys}
               className="text-4xl p-2 text-slate-500 bg-gray-200 rounded-full"

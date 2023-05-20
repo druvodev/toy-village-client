@@ -8,7 +8,7 @@ const MyToys = () => {
   const { toys, setToys } = useContext(AuthContext);
 
   useEffect(() => {
-    document.title = "ToyVillage || My Toys";
+    document.title = "ToyVillage | My Toys";
   }, []);
 
   useEffect(() => {

@@ -8,7 +8,7 @@ const Discount = () => {
     Aos.init();
   }, []);
   return (
-    <div className="">
+    <div className="py-12">
       <div className="h-[500px] sm:h-[700px] flex sm:items-center  bg-cover bg-center bg-[url('https://media.istockphoto.com/id/499661682/photo/yellow-school-bus-toy-model-in-christmas-theme.jpg?s=612x612&w=0&k=20&c=pCVZO1Z0lhx23JMbs4nYMPE-LtoKQAwDkvKqwVBLMyA=')] mt-12 mb-5">
         <div className="h-2/3 sm:h-full bg-opacity-70 bg-white rounded-b-full sm:rounded-bl-none sm:rounded-r-full flex sm:items-center  w-full sm:w-1/2 shadow-md shadow-pink-200 sm:shadow-none">
           <div className="py-10 text-center mx-auto">

@@ -10,7 +10,7 @@ const AddToy = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "ToyVillage || Add Toy";
+    document.title = "ToyVillage | Add Toy";
   }, []);
 
   // Get form input fields value
