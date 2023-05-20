@@ -18,7 +18,9 @@ const ToyCategory = () => {
 
   return (
     <div className="my-12 px-5 sm:px-10">
-      <h2 className="text-5xl font-bold text-center">Find Your Category</h2>
+      <h2 className="text-3xl sm:text-5xl font-bold mb-5 text-center">
+        Find Your Category
+      </h2>
       <Tabs forceRenderTabPanel defaultIndex={1}>
         <TabList>
           <Tab onClick={() => handleCategory("sports_car")}>Sports Car</Tab>

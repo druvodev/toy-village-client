@@ -49,16 +49,16 @@ const AllToys = () => {
 
   return (
     <div>
-      <div className="py-10 text-center bg-pink-100">
+      <div className="py-10 text-center bg-pink-100 flex">
         <input
           type="text"
-          className="border border-pink-500 px-3 py-3 rounded-l-2xl w-96 font-semibold"
+          className="border border-pink-500 px-3 py-3 rounded-l-full w-96 font-semibold"
           placeholder="Search.."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         <button
-          className="bg-pink-500 px-10 py-3 text-lg font-bold text-white tracking-wider rounded-r-2xl"
+          className="bg-pink-500 px-6 sm:px-10 py-3 sm:text-lg font-bold text-white tracking-wider rounded-r-full"
           onClick={handleSearch}
         >
           Search

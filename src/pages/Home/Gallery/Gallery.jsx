@@ -20,12 +20,14 @@ const Gallery = () => {
     "https://cdn.shopify.com/s/files/1/0088/7986/5907/products/Lego-10986-Duplo-Family-House-on-Wheels-Toy-With-Car-Construction-Lego-Toycra-9_700x700.webp?v=1681467930",
   ];
   return (
-    <div className="bg-pink-300 pt-5 sm:py-12">
-      <h2 className="text-5xl font-bold mb-5 text-center">Moments Gallery</h2>
-      <div className="grid grid-cols-8 gap-2">
-        <div className="col-span-3">
+    <div className="bg-pink-300 py-5 sm:py-12 px-5 sm:px-10">
+      <h2 className="text-3xl sm:text-5xl font-bold mb-5 text-center">
+        Moments Gallery
+      </h2>
+      <div className="grid sm:grid-cols-8 gap-2">
+        <div className="sm:col-span-3">
           <div
-            className={`w-full h-full bg-cover bg-center bg-[url('https://cdn.shopify.com/s/files/1/0088/7986/5907/products/Lego-10986-Duplo-Family-House-on-Wheels-Toy-With-Car-Construction-Lego-Toycra-8_700x700.webp?v=1681467929')] relative inline-block transition-opacity duration-300 ${
+            className={`w-full h-96 sm:h-full bg-cover bg-center bg-[url('https://cdn.shopify.com/s/files/1/0088/7986/5907/products/Lego-10986-Duplo-Family-House-on-Wheels-Toy-With-Car-Construction-Lego-Toycra-8_700x700.webp?v=1681467929')] relative inline-block transition-opacity duration-300 ${
               isHovered ? "opacity-100" : "opacity-75"
             }`}
             onMouseEnter={handleHover}
@@ -47,7 +49,7 @@ const Gallery = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-5 grid grid-cols-3 gap-2">
+        <div className="sm:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-2">
           {images.map((img, index) => (
             <GalleryCard key={index} image={img}></GalleryCard>
           ))}

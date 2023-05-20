@@ -121,7 +121,7 @@ const ToyUpdate = () => {
 
   return (
     <div className="grid justify-center bg-gray-100">
-      <div className="bg-white max-w-3xl p-10 my-10 rounded-3xl">
+      <div className="bg-white max-w-3xl p-5 sm:p-10 m-2 my-10 rounded-3xl">
         <div className="flex items-center space-x-2 mb-2">
           <div className="h-16 w-16 bg-amber-200 rounded-full flex flex-shrink-0 justify-center items-center text-amber-500 text-2xl font-mono">
             edit

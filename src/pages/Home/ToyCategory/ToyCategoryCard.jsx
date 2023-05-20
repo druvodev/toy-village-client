@@ -18,7 +18,7 @@ const ToyCategoryCard = ({ toys }) => {
   };
 
   return (
-    <div className="flex flex-wrap gap-5 m-5 sm:m-10">
+    <div className="flex flex-wrap gap-5 sm:m-10">
       {toys?.map((toy) => (
         <div
           key={toy._id}
