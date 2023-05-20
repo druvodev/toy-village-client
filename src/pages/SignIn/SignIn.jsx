@@ -34,6 +34,7 @@ const SignIn = () => {
     SignInUser(email, password)
       .then(() => {
         form.reset();
+        setLoading(false);
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -57,7 +58,10 @@ const SignIn = () => {
         setLoading(false);
         navigate(from, { replace: true });
       })
-      .catch((error) => setError(error.message));
+      .catch((error) => {
+        setLoading(false);
+        setError(error.message);
+      });
   };
 
   return (

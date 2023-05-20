@@ -17,7 +17,7 @@ const ToyCategory = () => {
   };
 
   return (
-    <div className="my-12 px-5 sm:px-10">
+    <div className="my-12 sm:mt-20 px-5 sm:px-10">
       <h2 className="text-3xl sm:text-5xl font-bold mb-5 text-center">
         Find Your Category
       </h2>

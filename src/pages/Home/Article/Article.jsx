@@ -7,7 +7,7 @@ const Article = () => {
       <h2 className="text-3xl sm:text-5xl font-bold mb-5 text-center">
         We Write to READ
       </h2>
-      <div className="grid lg:grid-cols-5 gap-3 mt-5 max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-5 gap-7 mt-5 max-w-7xl mx-auto">
         <div className="lg:col-span-3">
           <img
             className="rounded-md"
@@ -26,14 +26,14 @@ const Article = () => {
             elementum facilisis leo vel fringilla. Tincidunt nunc pulvinar
             sapien et ligula ullamcorper malesuada...
           </p>
-          <div className="sm:text-xl font-semibold opacity-70 flex gap-3 mt-4">
+          <div className="sm:text-xl font-semibold opacity-70 flex gap-3 mt-1">
             <p className="flex items-center gap-1">
               <FaRegUserCircle /> By Neha Roy
             </p>{" "}
             |<p>1 Comment</p>
           </div>
         </div>
-        <div className="grid gap-3 col-span-2">
+        <div className="grid gap-7 col-span-2">
           <div>
             <img
               className="rounded-md"
@@ -49,7 +49,7 @@ const Article = () => {
               montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
               pellentesque eu...
             </p>
-            <div className="sm:text-xl font-semibold opacity-70 flex gap-3 mt-4">
+            <div className="sm:text-xl font-semibold opacity-70 flex gap-3 mt-1">
               <p className="flex items-center gap-1">
                 <FaRegUserCircle /> By Alexa
               </p>{" "}
@@ -71,7 +71,7 @@ const Article = () => {
               montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
               pellentesque eu...
             </p>
-            <div className="sm:text-xl font-semibold opacity-70 flex gap-3 mt-4">
+            <div className="sm:text-xl font-semibold opacity-70 flex gap-3 mt-1">
               <p className="flex items-center gap-1">
                 <FaRegUserCircle /> By Sapla
               </p>{" "}

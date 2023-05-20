@@ -57,8 +57,9 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         updateName(result.user, name, photo);
-        navigate("/login");
+        navigate("/signIn");
         console.log(result.user);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error.message);
@@ -72,6 +73,16 @@ const SignUp = () => {
       });
     };
     form.reset();
+  };
+
+  const signInGoogle = () => {
+    signInWithGoogle()
+      .then(() => {
+        navigate("/");
+        setLoading(false);
+      })
+      .catch((err) => console.log(err));
+    setLoading(false);
   };
 
   return (
@@ -222,7 +233,7 @@ const SignUp = () => {
         <div className="divider">OR</div>
         <ul className="flex gap-5 items-center justify-center mt-1 mb-4">
           <li
-            onClick={() => signInWithGoogle()}
+            onClick={signInGoogle}
             className="w-full px-4 py-3 rounded-md shadow-md shadow-pink-200 border border-pink-100 flex
             hover:bg-gray-100 justify-center"
           >
