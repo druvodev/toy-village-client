@@ -7,7 +7,7 @@ import { AuthContext } from "../providers/AuthProvider";
 const MainLayout = () => {
   const { loading } = useContext(AuthContext);
   return (
-    <>
+    <div>
       <Navbar></Navbar>
       {loading ? (
         <div className="text-center flex items-center justify-center h-[calc(100vh-80px)]">
@@ -34,12 +34,12 @@ const MainLayout = () => {
           </div>
         </div>
       ) : (
-        <div className="min:h-[calc(100vh-80px)] bg-gray-100">
+        <div className="min-h-[calc(100vh-463.67px)] bg-gray-100">
           <Outlet></Outlet>
         </div>
       )}
       <Footer></Footer>
-    </>
+    </div>
   );
 };
 
