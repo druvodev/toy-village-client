@@ -49,7 +49,7 @@ const AddToy = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/");
+          navigate(`/myToys/${user?.email}`);
         }
       });
   };
