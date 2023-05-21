@@ -30,7 +30,7 @@ const ToyCategory = () => {
         <TabPanel>
           <Tabs forceRenderTabPanel>
             <TabList>
-              <Tab onClick={() => handleCategory("super_car")}>Super Car</Tab>
+              <Tab onClick={() => handleCategory("supercar")}>Super Car</Tab>
               <Tab onClick={() => handleCategory("convertible")}>
                 Convertible
               </Tab>

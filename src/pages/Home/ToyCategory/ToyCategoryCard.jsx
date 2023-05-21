@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const ToyCategoryCard = ({ toys }) => {
   const { user } = useContext(AuthContext);
-  const handleDetails = () => {
+  const navigate = useNavigate();
+
+  const handleDetails = (_id) => {
     if (!user) {
       Swal.fire({
         position: "top-center",
@@ -14,6 +17,8 @@ const ToyCategoryCard = ({ toys }) => {
         showConfirmButton: false,
         timer: 1500,
       });
+    } else {
+      navigate(`/toyDetails/${_id}`);
     }
   };
 
@@ -41,7 +46,10 @@ const ToyCategoryCard = ({ toys }) => {
               </span>
             </div>
             <div className="card-actions justify-end">
-              <button onClick={handleDetails} className="btn btn-warning">
+              <button
+                onClick={() => handleDetails(toy._id)}
+                className="btn btn-warning"
+              >
                 Details
               </button>
             </div>
