@@ -60,7 +60,13 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://toy-village-server.vercel.app/toyDetails/${params.id}`
+            `https://toy-village-server.vercel.app/toyDetails/${params.id}`,
+            {
+              method: "GET",
+              headers: {
+                authorization: `Bearer ${localStorage.getItem("toyUserToken")}`,
+              },
+            }
           ),
       },
       {
@@ -72,7 +78,13 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://toy-village-server.vercel.app/toyDetails/${params.id}`
+            `https://toy-village-server.vercel.app/toyDetails/${params.id}`,
+            {
+              method: "GET",
+              headers: {
+                authorization: `Bearer ${localStorage.getItem("toyUserToken")}`,
+              },
+            }
           ),
       },
       {

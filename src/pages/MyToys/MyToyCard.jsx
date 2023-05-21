@@ -36,6 +36,9 @@ const MyToyCard = ({ toy }) => {
       if (result.isConfirmed) {
         fetch(`https://toy-village-server.vercel.app/toyDetails/${_id}`, {
           method: "DELETE",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("toyUserToken")}`,
+          },
         })
           .then((res) => res.json())
           .then((data) => {
@@ -54,7 +57,7 @@ const MyToyCard = ({ toy }) => {
       <td>
         <div className="flex items-center space-x-3">
           <div className="avatar">
-            <div className="rounded w-48 h-48">
+            <div className="rounded-xl w-48 h-48">
               <img src={photo} alt="Avatar Tailwind CSS Component" />
             </div>
           </div>

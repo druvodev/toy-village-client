@@ -36,7 +36,10 @@ const AddToy = () => {
     // Add new toy in database
     fetch("https://toy-village-server.vercel.app/addToy", {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("toyUserToken")}`,
+        "content-type": "application/json",
+      },
       body: JSON.stringify(toy),
     })
       .then((res) => res.json())
