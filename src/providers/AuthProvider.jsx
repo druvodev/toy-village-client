@@ -40,7 +40,9 @@ const AuthProvider = ({ children }) => {
   // LogOut User
   const logOut = () => {
     signOut(auth)
-      .then(console.log("Sign out successfull."))
+      .then(() => {
+        localStorage.removeItem("toyUserToken");
+      })
       .catch((error) => setError(error.message));
   };
 

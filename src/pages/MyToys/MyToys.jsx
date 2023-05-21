@@ -6,7 +6,12 @@ const MyToys = () => {
   const { user, toys, setToys } = useContext(AuthContext);
   console.log(user.email);
   useEffect(() => {
-    fetch(`https://toy-village-server.vercel.app/myToys/${user.email}`)
+    fetch(`https://toy-village-server.vercel.app/myToys/${user.email}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("toyUserToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setToys(data);

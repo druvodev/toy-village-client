@@ -5,7 +5,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const SignIn = () => {
-  const { SignInUser, signInWithGoogle, setLoading } = useContext(AuthContext);
+  const { signInUser, signInWithGoogle, setLoading } = useContext(AuthContext);
   const [isShow, setIsShow] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -31,11 +31,28 @@ const SignIn = () => {
     }
 
     // SignIn user with email and password and error checking
-    SignInUser(email, password)
-      .then(() => {
+    signInUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        const loggedUser = {
+          email: user.email,
+        };
         form.reset();
         setLoading(false);
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
+
+        fetch("https://toy-village-server.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(loggedUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("jwt response", data);
+            localStorage.setItem("toyUserToken", data.token);
+          });
       })
       .catch((error) => {
         if (error.message === "Firebase: Error (auth/wrong-password).") {

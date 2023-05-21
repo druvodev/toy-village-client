@@ -59,7 +59,7 @@ const MyToyCard = ({ toy }) => {
             </div>
           </div>
           <div>
-            <div className="font-bold text-2xl">{name}</div>
+            <div className="font-bold text-xl sm:text-2xl">{name}</div>
             <div className="opacity-90">
               <p>
                 <span className="font-semibold">Price:</span> ${price}
