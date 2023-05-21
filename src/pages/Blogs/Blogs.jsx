@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Blogs = () => {
+  useEffect(() => {
+    document.title = "ToyVillage | Blogs";
+  }, []);
   return (
     <div className="mx-5 sm:mx-10 py-12">
       <h2 className="text-3xl sm:text-5xl font-bold mb-5 text-center">

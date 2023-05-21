@@ -37,7 +37,6 @@ const AddToy = () => {
     fetch("https://toy-village-server.vercel.app/addToy", {
       method: "POST",
       headers: {
-        authorization: `Bearer ${localStorage.getItem("toyUserToken")}`,
         "content-type": "application/json",
       },
       body: JSON.stringify(toy),

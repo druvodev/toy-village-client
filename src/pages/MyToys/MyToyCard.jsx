@@ -36,9 +36,6 @@ const MyToyCard = ({ toy }) => {
       if (result.isConfirmed) {
         fetch(`https://toy-village-server.vercel.app/toyDetails/${_id}`, {
           method: "DELETE",
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("toyUserToken")}`,
-          },
         })
           .then((res) => res.json())
           .then((data) => {

@@ -47,7 +47,6 @@ const ToyUpdate = () => {
     fetch(`https://toy-village-server.vercel.app/toyUpdate/${_id}`, {
       method: "PATCH",
       headers: {
-        authorization: `Bearer ${localStorage.getItem("toyUserToken")}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(updatedToy),
