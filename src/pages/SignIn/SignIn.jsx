@@ -66,10 +66,10 @@ const SignIn = () => {
         const loggedUser = {
           email: user.email,
         };
-        setLoading(false);
-        navigate(from, { replace: true });
         // verify user
         verifyUserByJWT(loggedUser);
+        setLoading(false);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setLoading(false);

@@ -83,11 +83,10 @@ const SignUp = () => {
         const loggedUser = {
           email: user.email,
         };
-        navigate("/");
-        setLoading(false);
-
         // verify user
         verifyUserByJWT(loggedUser);
+        setLoading(false);
+        navigate("/");
       })
       .catch((err) => console.log(err));
     setLoading(false);

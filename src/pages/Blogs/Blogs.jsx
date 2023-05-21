@@ -81,7 +81,7 @@ const Blogs = () => {
               <li>Extensive ecosystem of plugins and libraries</li>
               <li>Handles routing, HTTP requests/responses, and middleware</li>
             </ul>
-            <p className="font-semibold mt-5">Express JS:</p>
+            <p className="font-semibold mt-5">Nest JS:</p>
             <ul className="list-disc list-inside">
               <li>Built with TypeScript and inspired by Angular</li>
               <li>

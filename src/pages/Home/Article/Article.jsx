@@ -7,7 +7,7 @@ const Article = () => {
       <h2 className="text-3xl sm:text-5xl font-bold mb-5 text-center">
         We Write to READ
       </h2>
-      <div className="grid lg:grid-cols-5 gap-7 mt-5 max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-5 sm:gap-x-7 gap-y-7 sm:gap-y-0 mt-5 max-w-7xl mx-auto">
         <div className="lg:col-span-3">
           <img
             className="rounded-md"

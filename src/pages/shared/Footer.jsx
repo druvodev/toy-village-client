@@ -126,12 +126,13 @@ const Footer = () => {
         <hr className="my-6 sm:mx-auto border-gray-100 lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm sm:text-center text-gray-400">
-            © 2023{" "}
+            © {new Date().getFullYear()}{" "}
             <a href="#" className="hover:underline">
               ToyVillage
             </a>
             . All Rights Reserved.
           </span>
+
           <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
             <a href="#" className="text-gray-400 hover:text-blue-500">
               <svg
