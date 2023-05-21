@@ -6,8 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
-  const { createUser, signInWithGoogle, setLoading, verifyUserByJWT } =
-    useContext(AuthContext);
+  const { createUser, signInWithGoogle, setLoading } = useContext(AuthContext);
   const [firstIsShow, setFirstIsShow] = useState(false);
   const [secondIsShow, setSecondIsShow] = useState(false);
   const [isTermsChecked, setIsTermsChecked] = useState(false);
@@ -78,13 +77,7 @@ const SignUp = () => {
 
   const signInGoogle = () => {
     signInWithGoogle()
-      .then((result) => {
-        const user = result.user;
-        const loggedUser = {
-          email: user.email,
-        };
-        // verify user
-        verifyUserByJWT(loggedUser);
+      .then(() => {
         setLoading(false);
         navigate("/");
       })

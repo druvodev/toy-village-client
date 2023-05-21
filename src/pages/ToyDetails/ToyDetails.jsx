@@ -22,7 +22,7 @@ const ToyDetails = () => {
 
   // Replaced Sub Category Text
   const replacedCategory = () => {
-    const words = subCategory.split("_");
+    const words = subCategory?.split("_");
     return words
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
@@ -44,15 +44,15 @@ const ToyDetails = () => {
               {replacedCategory()}
             </span>
           </h3>
-          <p>
-            <span className="font-bold opacity-60">Seller:</span>{" "}
+          <p className="font-bold">
+            <span className="opacity-60">Seller:</span>{" "}
             <span>{sellerName}</span>
           </p>
-          <p>
-            <span className="font-bold opacity-60">Rating:</span> {rating}
+          <p className="font-bold">
+            <span className="opacity-60">Rating:</span> {rating}
           </p>
-          <p>
-            <span className="font-bold opacity-60">Price:</span> ${price}
+          <p className="font-bold">
+            <span className="opacity-60">Price:</span> ${price}
           </p>
           <p className="mt-1">
             <span className="font-bold opacity-60">Description: </span>

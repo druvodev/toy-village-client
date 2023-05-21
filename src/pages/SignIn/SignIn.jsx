@@ -5,9 +5,9 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const SignIn = () => {
-  const { signInUser, signInWithGoogle, setLoading, verifyUserByJWT } =
-    useContext(AuthContext);
+  const { signInUser, signInWithGoogle, setLoading } = useContext(AuthContext);
   const [isShow, setIsShow] = useState(false);
+
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -33,16 +33,10 @@ const SignIn = () => {
 
     // SignIn user with email and password and error checking
     signInUser(email, password)
-      .then((result) => {
-        const user = result.user;
-        const loggedUser = {
-          email: user.email,
-        };
+      .then(() => {
         form.reset();
         setLoading(false);
         navigate(from, { replace: true });
-        // verify user
-        verifyUserByJWT(loggedUser);
       })
       .catch((error) => {
         if (error.message === "Firebase: Error (auth/wrong-password).") {
@@ -61,15 +55,9 @@ const SignIn = () => {
   // Sign In with Google
   const handleGoogleSignIn = () => {
     signInWithGoogle()
-      .then((result) => {
-        const user = result.user;
-        const loggedUser = {
-          email: user.email,
-        };
-        // verify user
-        verifyUserByJWT(loggedUser);
-        setLoading(false);
+      .then(() => {
         navigate(from, { replace: true });
+        setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
