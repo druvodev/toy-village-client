@@ -46,7 +46,7 @@ const Navbar = () => {
             {user ? (
               <>
                 <li>
-                  <Link to={`/myToys/${user?.email}`}>My Toys</Link>
+                  <Link to={"/myToys"}>My Toys</Link>
                 </li>
                 <li>
                   <Link to={"/addToy"}>Add Toy</Link>
@@ -80,7 +80,7 @@ const Navbar = () => {
           {user ? (
             <>
               <li>
-                <Link to={`/myToys/${user?.email}`}>My Toys</Link>
+                <Link to={"/myToys"}>My Toys</Link>
               </li>
               <li>
                 <Link to={"/addToy"}>Add Toy</Link>

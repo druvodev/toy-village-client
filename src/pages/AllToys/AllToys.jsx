@@ -20,7 +20,7 @@ const AllToys = () => {
       toy.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    setDisplayToys(filteredToys.slice(0, 4));
+    setDisplayToys(filteredToys.slice(0, 20));
   }, [allToys, searchQuery]);
 
   const handleSearch = () => {
@@ -40,8 +40,8 @@ const AllToys = () => {
 
   // Toggle display of toys
   const handleDisplayToys = () => {
-    if (displayToys.length > 4) {
-      setDisplayToys(displayToys.slice(0, 4));
+    if (displayToys.length > 20) {
+      setDisplayToys(displayToys.slice(0, 20));
     } else {
       setDisplayToys(allToys);
     }
@@ -53,7 +53,7 @@ const AllToys = () => {
         <div className="flex">
           <input
             type="text"
-            className="border border-pink-500 px-3 py-3 rounded-l-full w-96 font-semibold"
+            className="border border-pink-500 px-3 py-3 rounded-l-full sm:w-96 font-semibold"
             placeholder="Search.."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -81,14 +81,18 @@ const AllToys = () => {
               </tbody>
             </table>
           </div>
-          <div className="text-center pt-4 pb-10">
-            <button
-              onClick={handleDisplayToys}
-              className="text-4xl p-2 text-slate-500 bg-gray-200 rounded-full"
-            >
-              {displayToys.length > 4 ? <FaChevronUp /> : <FaChevronDown />}
-            </button>
-          </div>
+          {allToys.length < 20 ? (
+            ""
+          ) : (
+            <div className="text-center pt-4 pb-10">
+              <button
+                onClick={handleDisplayToys}
+                className="text-4xl p-2 text-slate-500 bg-gray-200 rounded-full"
+              >
+                {displayToys.length > 20 ? <FaChevronUp /> : <FaChevronDown />}
+              </button>
+            </div>
+          )}
         </>
       )}
     </div>

@@ -15,6 +15,14 @@ const MyToyCard = ({ toy }) => {
     sellerName,
   } = toy;
 
+  // Replaced Sub Category Text
+  const replacedCategory = () => {
+    const words = subCategory.split("_");
+    return words
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
+
   const handleDelete = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -66,7 +74,7 @@ const MyToyCard = ({ toy }) => {
             </div>
             <div className="mt-3">
               <span className="badge badge-success text-white text-lg px-3 py-3">
-                # {subCategory}
+                {replacedCategory()}
               </span>
             </div>
           </div>

@@ -35,7 +35,7 @@ const Discount = () => {
       <div className="flex flex-wrap sm:flex-nowrap gap-5 px-5 sm:px-10 sm:-mt-28">
         <div
           className="h-80 w-full sm:w-1/3 bg-cover bg-center bg-[url('https://momlovesbest.com/wp-content/uploads/2022/10/Vebo-Motorized-Fire-Truck.webp')] flex items-center justify-center rounded-2xl shadow-md"
-          data-aos="fade-up-right"
+          data-aos="fade-up"
         >
           <div className="bg-white bg-opacity-60 text-center p-12 rounded-3xl w-fit shadow-md">
             <p className="text-2xl font-semibold">Fire Car Toys</p>
@@ -53,7 +53,7 @@ const Discount = () => {
         </div>
         <div
           className="h-80 w-full sm:w-1/3 bg-cover bg-center bg-[url('https://media1.popsugar-assets.com/files/thumbor/FgbsLpBkzTLHT4eeKKI8b_DjNAo/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2022/12/14/928/n/24155406/070eca99639a3d2ca24558.50538143_/i/Gifts-Kids-Obsessed-Trucks.jpg')] flex items-center justify-center rounded-2xl shadow-md"
-          data-aos="fade-up-left"
+          data-aos="fade-up"
         >
           <div className="bg-white bg-opacity-70 shadow-md text-center p-12 rounded-3xl w-fit">
             <p className="text-2xl font-semibold">Truck Toys</p>

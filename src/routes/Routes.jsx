@@ -44,14 +44,12 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/myToys/:id",
+        path: "/myToys",
         element: (
           <PrivateRoute>
             <MyToys></MyToys>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`https://toy-village-server.vercel.app/myToys/${params.id}`),
       },
       {
         path: "/toyDetails/:id",

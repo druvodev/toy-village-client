@@ -49,8 +49,8 @@ const AddToy = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate(`/myToys/${user?.email}`);
         }
+        form.reset();
       });
   };
 

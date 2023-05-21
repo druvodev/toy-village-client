@@ -11,6 +11,14 @@ const ToyCard = ({ toy }) => {
     availableQuantity,
     sellerName,
   } = toy;
+
+  // Replaced Sub Category Text
+  const replacedCategory = () => {
+    const words = subCategory.split("_");
+    return words
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
   return (
     <tr>
       <td>
@@ -36,7 +44,7 @@ const ToyCard = ({ toy }) => {
             </div>
             <div className="mt-3">
               <span className="badge badge-warning text-white text-lg px-3 py-3">
-                # {subCategory}
+                {replacedCategory()}
               </span>
             </div>
           </div>
