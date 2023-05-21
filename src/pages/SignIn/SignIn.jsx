@@ -5,7 +5,8 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const SignIn = () => {
-  const { signInUser, signInWithGoogle, setLoading } = useContext(AuthContext);
+  const { signInUser, signInWithGoogle, setLoading, verifyUserByJWT } =
+    useContext(AuthContext);
   const [isShow, setIsShow] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -39,20 +40,9 @@ const SignIn = () => {
         };
         form.reset();
         setLoading(false);
-        // navigate(from, { replace: true });
-
-        fetch("https://toy-village-server.vercel.app/jwt", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(loggedUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log("jwt response", data);
-            localStorage.setItem("toyUserToken", data.token);
-          });
+        navigate(from, { replace: true });
+        // verify user
+        verifyUserByJWT(loggedUser);
       })
       .catch((error) => {
         if (error.message === "Firebase: Error (auth/wrong-password).") {
@@ -71,9 +61,15 @@ const SignIn = () => {
   // Sign In with Google
   const handleGoogleSignIn = () => {
     signInWithGoogle()
-      .then(() => {
+      .then((result) => {
+        const user = result.user;
+        const loggedUser = {
+          email: user.email,
+        };
         setLoading(false);
         navigate(from, { replace: true });
+        // verify user
+        verifyUserByJWT(loggedUser);
       })
       .catch((error) => {
         setLoading(false);
@@ -88,7 +84,7 @@ const SignIn = () => {
       </h1>
       <form
         onSubmit={handleEmailSignIn}
-        className="w-full max-w-3xl mx-auto bg-white p-4 sm:p-8 rounded-md sm:shadow-md"
+        className="w-full max-w-xl mx-auto bg-white p-4 sm:p-8 rounded-md sm:shadow-md"
       >
         <div className="mb-4">
           <label

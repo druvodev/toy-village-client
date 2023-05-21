@@ -6,7 +6,8 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
-  const { createUser, signInWithGoogle, setLoading } = useContext(AuthContext);
+  const { createUser, signInWithGoogle, setLoading, verifyUserByJWT } =
+    useContext(AuthContext);
   const [firstIsShow, setFirstIsShow] = useState(false);
   const [secondIsShow, setSecondIsShow] = useState(false);
   const [isTermsChecked, setIsTermsChecked] = useState(false);
@@ -77,9 +78,16 @@ const SignUp = () => {
 
   const signInGoogle = () => {
     signInWithGoogle()
-      .then(() => {
+      .then((result) => {
+        const user = result.user;
+        const loggedUser = {
+          email: user.email,
+        };
         navigate("/");
         setLoading(false);
+
+        // verify user
+        verifyUserByJWT(loggedUser);
       })
       .catch((err) => console.log(err));
     setLoading(false);
@@ -92,7 +100,7 @@ const SignUp = () => {
       </h1>
       <form
         onSubmit={handleEmailRegister}
-        className="w-full max-w-3xl mx-auto bg-white p-4 sm:p-8 rounded-md sm:shadow-md"
+        className="w-full max-w-xl mx-auto bg-white p-4 sm:p-8 rounded-md sm:shadow-md"
       >
         <div className="mb-4">
           <label className="block text-gray-700  font-bold mb-1" htmlFor="name">

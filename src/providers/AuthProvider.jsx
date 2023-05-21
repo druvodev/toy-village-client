@@ -56,6 +56,22 @@ const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, [user]);
 
+  // Verify User By JWT
+  const verifyUserByJWT = (loggedUser) => {
+    fetch("https://toy-village-server.vercel.app/jwt", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(loggedUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("jwt response", data);
+        localStorage.setItem("toyUserToken", data.token);
+      });
+  };
+
   const authInfo = {
     createUser,
     signInWithGoogle,
@@ -66,6 +82,7 @@ const AuthProvider = ({ children }) => {
     setLoading,
     toys,
     setToys,
+    verifyUserByJWT,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
